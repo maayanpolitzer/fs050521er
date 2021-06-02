@@ -1,0 +1,3 @@
+class Dog:
+
+    name = "Moshe"
