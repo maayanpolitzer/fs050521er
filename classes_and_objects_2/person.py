@@ -4,6 +4,10 @@ class Person:
     def __init__(self, name):
         self.__person_name = name
         self.__grades = []
+        self.__pets = []
+        self.__children = []
+        self.__parents = [Person("Mother"), Person("Father")]
+        self.__phone = "05234524534"
 
     def set_id(self, id):
         self.__id = id

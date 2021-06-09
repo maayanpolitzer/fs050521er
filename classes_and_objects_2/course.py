@@ -5,6 +5,10 @@ class Course:
     def __init__(self, name):
         self.__course_name = name
         self.__students = []
+        self.__teacher = Person("Maayan Politzer")
+        self.__classroom_number = 13
+        self.__start_date = "2021-05-06"
+        self.__end_date = "2022-09-01"
 
     # single responsibility
     def add_student(self, new_student):

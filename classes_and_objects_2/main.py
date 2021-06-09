@@ -4,7 +4,7 @@ from person import Person
 
 c = Course("Flutter")  # constructor/בנאי
 
-c.add_student(Person("Maayan"))
+c.add_student(Person("Oleg"))
 c.add_student(Person("Irit"))
 c.add_student(Person("Itay"))
 c.add_student(Person("Ido"))
@@ -17,6 +17,8 @@ c.add_student(Person("Segoli"))
 # print(len(c))
 
 c.delete_student("Yossi")
+
+c.cancel_lesson()
 
 # print(len(c))
 
