@@ -6,8 +6,16 @@ class Person:
         self.__grades = []
         self.__pets = []
         self.__children = []
-        self.__parents = [Person("Mother"), Person("Father")]
+        # self.__parents = [Person("Mother"), Person("Father")]
         self.__phone = "05234524534"
+
+    def add_grade_to_test_by_index(self, test_index, grade_to_add):
+        if len(self.__grades) > test_index:
+            test_grade = self.__grades[test_index]
+            if test_grade + grade_to_add > 100:
+                self.__grades[test_index] = 100
+            else:
+                self.__grades[test_index] += grade_to_add
 
     def set_id(self, id):
         self.__id = id

@@ -1,0 +1,1 @@
+{"name": "Moshe Cohen", "phone": "052-1234567", "pet_type": "Dog", "pet_name": "Lady"}{"name": "Maayan Politzer", "phone": "052-7777777", "pet_type": "Fish", "pet_name": "Segoly"}

@@ -136,8 +136,6 @@ print(d)
 #print(d["jkjkjkjkj"])   # crash(Exception)!!!  # סיבוכיות: O(1)
 # print(d.get("jlj2"))
 
-
-
 for key in d.keys():
      #print(f"{key}: {d[key]}")
     for s in d[key]:
@@ -154,3 +152,6 @@ for key in d.keys():
 # 4 - find the "n" in each string
 
 print(8 // 5)
+
+
+

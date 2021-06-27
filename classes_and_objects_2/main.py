@@ -18,7 +18,7 @@ c.add_student(Person("Segoli"))
 
 c.delete_student("Yossi")
 
-c.cancel_lesson()
+# c.cancel_lesson()
 
 # print(len(c))
 
@@ -34,9 +34,13 @@ c.make_test([40, 60, 50, 46, 41, 64])
 print(c.get_best_student_name())
 
 # add to the first(0) test 25 points for all students, but 100 is the MAX!
-#c.make_factor(0, 25)
+c.make_factor(0, 25)
+# c.get_students()[5].print_person_details()
 
-#print(c.get_best_student_name())
+
+
+
+print(c.get_best_student_name())
 
 
 

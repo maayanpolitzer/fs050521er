@@ -10,6 +10,11 @@ class Course:
         self.__start_date = "2021-05-06"
         self.__end_date = "2022-09-01"
 
+    # max is 100
+    def make_factor(self, test_index, factor_rate):
+        for student in self.__students:
+            student.add_grade_to_test_by_index(test_index, factor_rate)
+
     # single responsibility
     def add_student(self, new_student):
         if len(new_student.get_name()) > 0:
