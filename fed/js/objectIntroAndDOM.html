@@ -1,0 +1,87 @@
+<html>
+
+<head>
+    <script>
+        // object (instance/object/עצם/מופע/אובייקט):
+        var n = 4.7;
+        var b = true;
+        var s = "Moshe";
+
+        // example Object:
+        var maayanBirthdayGift = {
+            color: "pink",
+            make: "Audi",
+            model: "Q5",
+            numberOfWheels: 4,
+            gear: "auto",
+            year: 2021
+        };
+
+        var benBirthdayGift = {
+            color: "Grey",
+            make: "Fiat",
+            model: "uno",
+            numberOfWheels: 3,
+            gear: "manual",
+            year: 1998
+        };
+
+        s = "New Value";
+        //console.log(s);
+
+        //console.log("ben: " + benBirthdayGift.numberOfWheels);
+        //console.log("maayan: " + maayanBirthdayGift.numberOfWheels);
+
+        var x = {
+            ben: benBirthdayGift,
+            maayan: maayanBirthdayGift
+        }
+
+        //console.log(x);
+
+        // var button = {
+        //     id: "myButtonId",
+        //     class: "myButtonClass",
+        //     text: "Click me"
+        // };
+
+        function maayan() {
+            var ben = document.getElementById("buttonId");    // תגית(אובייקט)
+            ben.innerHTML = "button new text";
+        }
+
+    </script>
+    <style>
+        button {
+            background-color: grey;
+            
+        }
+
+        .myButtonClass {
+            font-size: 30px;
+        }
+
+        #myButtonId {
+            color: blue
+        }
+    </style>
+</head>
+
+<body>
+    <button id="myButtonId" class="myButtonClass" onClick="maayan()">Click me</button>
+    <button id="buttonId" class="myButtonClass">dont Click me</button>
+    <ul>
+        <li elad="svkjn" value="one">
+            1
+        </li>
+        <li value="two">
+            2
+        </li>
+
+    </ul>
+    <div class="myDiv">
+        <h1>sdlfknsd</h1>
+    </div>
+</body>
+
+</html>

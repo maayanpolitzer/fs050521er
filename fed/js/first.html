@@ -1,0 +1,51 @@
+<html>
+
+<head>
+    <script>
+        var age = 16;   // global variable - משתנה גלובלי
+        age = 4;
+        m = 87;
+        var x;
+        var x1 = "elad";
+        var name;
+        if (m == 89) {
+            var x1 = "Moshe";
+            console.log(x1);
+            name = "Maayan";
+            x = "Wow";  // משתנה מקומי - גלוי אך ורק בתוך הסוגריים המסולסלים שבו נוצר - local variable
+            console.log(x);
+            var x2 = "Eli"
+        } else {
+            console.log(x1);
+        }
+        var x = "Maayan";
+        console.log(x);
+        // scope - האזור שבו ניתן לגשת למידע
+        var isOver18 = age >= 18;   // boolean variable is true/false.
+        if (!isOver18) {
+            console.log("You are too young!");
+        } else {
+            console.log("Please come in...");
+        }
+
+            // var counter = 0;
+            // var i = 8;
+            // if( i % 3 == 0){
+            //     counter++;
+            // }
+
+            // console.log(counter);
+        /*
+        loops
+        ++ --
+        functions
+        connection to elements.
+        */
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

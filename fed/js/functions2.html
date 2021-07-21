@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <script>
+
+        function addTwoNumbers(x, y) {
+            console.log(x + y);
+        }
+
+        function calculateButtonClicked() {
+            var firstNumberAsString = document.getElementById("firstInput").value;
+            var secondNumberAsString = document.getElementById("secondInput").value;
+            if (
+                firstNumberAsString != "" &&
+                !isNaN(firstNumberAsString) &&
+                secondNumberAsString != "" &&
+                !isNaN(secondNumberAsString)
+            ) {
+                var firstNumber = parseInt(firstNumberAsString);
+                var secondNumber = parseInt(secondNumberAsString);
+                addTwoNumbers(firstNumber, secondNumber);
+            } else {
+                console.log("error with your inputs....");
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <input id="firstInput" type="number" placeholder="first number">
+    <br />
+    <input id="secondInput" placeholder="second number">
+    <br />
+    <button onclick="calculateButtonClicked()">calculate</button>
+</body>
+
+</html>

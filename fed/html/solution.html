@@ -10,10 +10,9 @@
         /********* THE FIRST ROW ******/
 
         #title #t {
-            background-color: pink;
-            width: 700px;
-            display: inline-block;
-            padding-bottom: 18px;
+            float: left;
+            padding-right: 100px;
+            font-size: 24px;
         }
 
         #title #plus {
@@ -27,17 +26,37 @@
         }
 
         #title {
-            font-size: 24px;
+            font-size: 0;
         }
 
         #addCampaignButton {
-            display: inline;
-            background-color: grey;
-            color: white;
+            background-color: #595959;
 
         }
 
+        #reviewButton {
+            background-color: #D9D9D9;
+
+        }
+
+        .tab {
+            display: inline;
+            float: right;
+            color: white;
+            padding: 5px 8px;
+            font-size: 16px;
+            margin-top: 13px;
+        }
+
         /******* SECOND ROW **********/
+
+        #center {
+            background-color: #595959;
+            width: 100%;
+            height: 40px;
+            clear: both;
+            border-bottom: 2px solid red;
+        }
     </style>
 </head>
 
@@ -48,10 +67,11 @@
                 <span id="plus">+</span>
                 <span id="c">C</span>REATE NEW CAMPAIGN
             </div>
-            <div id="addCampaignButton">ADD CAMPAIGN</div>
+            <div class="tab" id="reviewButton">REVIEW</div>
+            <div class="tab" id="addCampaignButton">ADD CAMPAIGN</div>
 
         </div>
-        <div>
+        <div id="center">
 
         </div>
         <table>
