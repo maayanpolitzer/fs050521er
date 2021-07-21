@@ -1,0 +1,143 @@
+h1 {
+    color:rgb(82, 82, 82); 
+    text-align: left;
+    font-size: 30px;
+    padding: 10px;
+}
+
+
+table {
+    border-bottom: 3px solid gray;
+    border-left: 3px solid gray;
+    background-color: rgb(245, 245, 245);
+    width: 50%;
+    font-family:'Times New Roman', Times, serif ;
+    border-collapse: collapse;
+}
+
+
+td {
+    height: 30px;
+    padding: 10px;
+    border: 1px solid rgb(202, 202, 202);  
+}
+
+
+thead { 
+    text-align: left;
+    color: white;
+    background-color: rgb(82, 82, 82);
+    padding: 10px;
+    border-bottom: 3px solid rgb(151, 28, 28);
+    border-collapse: collapse;    
+}
+
+th {
+    padding: 10px;
+}
+
+
+button {
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
+  background-image: linear-gradient(to bottom right, white,gray);
+}
+
+input {
+    background-image: linear-gradient(to bottom right, white,gray);
+}
+
+select {
+    background-image: linear-gradient(to bottom right, white,gray);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* body {
+    padding:  20px;
+}
+tr {
+      
+    border-collapse: collapse;
+      border-bottom: 1px solid rgb(221, 221, 221);
+      height: 75px;
+      width: 150px;
+      
+  }
+
+table {
+  border-bottom: 3px solid gray;
+  border-left: 3px solid gray;
+  background-color: rgb(236, 234, 234);
+  display: grid;
+
+}
+
+
+  h1 {
+      color: rgb(78, 78, 78);
+
+  }
+  
+  thead {
+      background-color: rgb(73, 73, 73);
+      text-align: left;
+      border-bottom: 3px solid red;
+      color: white
+      
+  }
+
+  td {
+      padding-left: 10px;
+      border-bottom: 1px solid rgb(221, 221, 221);
+      height: 75px;
+      width: 150px;
+     
+  }
+
+  .leftSideTD{
+      border-right: 1px solid rgb(221, 221, 221);
+  } */
