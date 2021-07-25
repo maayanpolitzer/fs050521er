@@ -2,11 +2,12 @@
 
 <head>
     <script>
-        // object (instance/object/עצם/מופע/אובייקט):
+        
         var n = 4.7;
         var b = true;
         var s = "Moshe";
 
+        // object (instance/object/עצם/מופע/אובייקט):
         // example Object:
         var maayanBirthdayGift = {
             color: "pink",
@@ -17,6 +18,7 @@
             year: 2021
         };
 
+        //(key - מפתח: value - ערך)
         var benBirthdayGift = {
             color: "Grey",
             make: "Fiat",
@@ -46,27 +48,22 @@
         // };
 
         function maayan() {
-            var ben = document.getElementById("buttonId");    // תגית(אובייקט)
-            ben.innerHTML = "button new text";
+            var theDontClickMeButton = document.getElementById("buttonId");    // תגית(אובייקט)
+            theDontClickMeButton.innerHTML = "button new text";
         }
-
     </script>
     <style>
         button {
             background-color: grey;
-            
         }
-
         .myButtonClass {
             font-size: 30px;
         }
-
         #myButtonId {
             color: blue
         }
     </style>
 </head>
-
 <body>
     <button id="myButtonId" class="myButtonClass" onClick="maayan()">Click me</button>
     <button id="buttonId" class="myButtonClass">dont Click me</button>

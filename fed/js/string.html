@@ -1,0 +1,55 @@
+<html>
+
+<head>
+    <script>
+        function manipulate() {
+            var text = document.getElementById("textInput").value;
+            // STRING MANIPULATION:
+
+            // var data = text.length;// return the length of the string (number of characters).
+            // var data = text.indexOf("M") // return the index of the first occurance of the parameter // if the return index is -1 => the parameter is NOT in the string
+            // var data = text.slice(2,4); // return a new string that start at index 2 and ends at index 4 (not included);
+            // var data = text.slice(3);    // from index 3 until the end of the string.
+            // var data = text.slice(-3, -1); // slice accepts negative values.
+            // var data = text.substring(2,4); // same as slice but does NOT accept negative!
+            // var data = text.substring(1, 3); // same as slice but does NOT accept negative!
+            // var data = text.substr(3, 2); // return a new string from the first param index, and length as the second param
+            // var data = text.replace("a", "123456789");  // return new string that replaces the first occurance of the first param with the second param
+            // var data = text.toUpperCase();
+            // var data = text.toLowerCase();
+            // var data = text.trim();
+            // var data = text.charAt(4); // return the character in this index.
+            // var number = false, upper = false, lower = false, special = false;
+            // var n = "1234567890", u = "ABCDEFGHIJKLMONPQRSTUVWXYZ", l = u.toLowerCase(), s = "!@#$%^&*()?><";
+            // for (var i = 0; i < text.length; i++) {
+            //     if (n.indexOf(text[i]) > -1) {
+            //         number = true;
+            //     } else if (u.indexOf(text[i]) > -1) {
+            //         upper = true;
+            //     } else if (l.indexOf(text[i]) > -1) {
+            //         lower = true;
+            //     } else if (s.indexOf(text[i]) > -1) {
+            //         special = true;
+            //     } else {
+
+            //     }
+            // }
+            // if (number && upper && lower && special) {// the same as: if (number == true && upper == true && lower == true && special == true) {
+            //     data = "Great password!!!!";
+            // } else {
+            //     data = "Not wow...";
+            // }
+            var data = text.split(" "); // return an array of strings.
+            document.getElementById("result").innerHTML = data;
+        }
+
+    </script>
+</head>
+
+<BoDY>
+    <inPUT id="textInput" placeholder="full name"/>
+    <button onclick="manipulate()">manipulate</button>
+    <h1 id="result"></h1>
+</body>
+
+</html>
