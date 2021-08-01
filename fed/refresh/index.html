@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title></title>
 	<link rel="stylesheet" href="paintingStyle.css">
+	
+	<script src="myScripts.js"></script>
 </head>
+
 <body>
 	<div id="wrapper">
 		<!-- all the tags will be in the #wrapper div -->
@@ -15,13 +19,13 @@
 			<li id="blueColor" class="colorCircle"></li>
 			<li id="yellowColor" class="colorCircle"></li>
 		</ul>
-		<button id="openPickerButton">Open Color Picker</button>
-		<br/>
+		<button onclick="changePickerDivDisplay();" id="openPickerButton">Open Color Picker</button>
+		<br />
 		<div id="pickerDiv">
 			<table>
 				<tr>
 					<td>R</td>
-					<td><input type="range"/></td>
+					<td><input oninput="myFunction();" id="redInput" type="range" min="0" max="255" /></td>
 					<td rowspan="3">
 						<div id="preview">
 
@@ -30,11 +34,12 @@
 				</tr>
 				<tr>
 					<td>G</td>
-					<td><input type="range"/></td>
+					<td><input oninput="myFunction();" id="greenInput" type="range" min="0" max="255" />
+					</td>
 				</tr>
 				<tr>
 					<td>B</td>
-					<td><input type="range"/></td>
+					<td><input oninput="myFunction();" id="blueInput" type="range" min="0" max="255" /></td>
 				</tr>
 				<tr>
 					<td colspan="3"><button id="saveColorButton">Save color</button></td>
@@ -43,4 +48,5 @@
 		</div>
 	</div>
 </body>
+
 </html>
