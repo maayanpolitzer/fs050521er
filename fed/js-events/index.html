@@ -1,0 +1,19 @@
+<html>
+
+<head>
+    <script>
+        function dor() {
+            var inputValue = document.getElementById("myInput").value;
+            document.getElementById("textTag").innerHTML = inputValue;
+        }
+    </script>
+</head>
+
+<body onload="console.log('body is done rendering')">
+    <input oninput="dor();" id="myInput" type="text" />
+    <br />
+    <h1 id="textTag"></h1>
+    <!-- <button onclick="dor();">test</button> -->
+</body>
+
+</html>

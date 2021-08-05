@@ -3,9 +3,8 @@
 
 <head>
 	<title></title>
-	<link rel="stylesheet" href="paintingStyle.css">
-	
-	<script src="myScripts.js"></script>
+	<link rel="stylesheet" href="resources/style/paintingStyle.css">
+	<script src="resources/script/myScripts.js"></script>
 </head>
 
 <body>
@@ -14,7 +13,7 @@
 		<canvas>
 			Your browser does not support HTML 5.
 		</canvas>
-		<ul>
+		<ul id="colorList">
 			<li id="redColor" class="colorCircle"></li>
 			<li id="blueColor" class="colorCircle"></li>
 			<li id="yellowColor" class="colorCircle"></li>
@@ -42,7 +41,7 @@
 					<td><input oninput="myFunction();" id="blueInput" type="range" min="0" max="255" /></td>
 				</tr>
 				<tr>
-					<td colspan="3"><button id="saveColorButton">Save color</button></td>
+					<td colspan="3"><button onclick="addColor();" id="saveColorButton">Save color</button></td>
 				</tr>
 			</table>
 		</div>
