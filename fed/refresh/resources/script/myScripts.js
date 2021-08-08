@@ -9,13 +9,16 @@ function myFunction() {
     var blueInput = document.getElementById("blueInput");
     console.log(blueInput.value);
     */
+    color = getColorFromRanges();
+    var preview = document.getElementById("preview");
+    preview.style.backgroundColor = color;
+}
+
+function getColorFromRanges() {
     var red = getValueFromInputById("redInput");
     var green = getValueFromInputById("greenInput");
     var blue = getValueFromInputById("blueInput");
-    //var color = "rgb(" + red + "," + green + "," + blue + ")"; // rgb(0,0,0)
-    var color = getColorFromRGB(red, green, blue);
-    var preview = document.getElementById("preview");
-    preview.style.backgroundColor = color;
+    return getColorFromRGB(red, green, blue);
 }
 
 function getColorFromRGB(red, green, blue) {
@@ -32,14 +35,17 @@ function addColor() {
     // DO NOT CODE LIKE THIS!!! (I WILL KILL YOU)
     //document.getElementById("colorList").innerHTML = document.getElementById("colorList").innerHTML + "<li style='background-color:pink' class='colorCircle'></li>";
 
-
     //1. create circle.
     // 1.1. create li tag (element):
     var newColorElement = document.createElement("li");
-    // 1.2. add class that will change the style to circle:
+    // 1.2. add click event listener to the new circle:
+    newColorElement.addEventListener("click", selectColor);
+    // 1.3. add class that will change the style to circle:
     newColorElement.classList.add("colorCircle");
     //2. get the choosen color!
-    var choosenColor = document.getElementById("preview").style.backgroundColor;
+    //BUG:
+    //var choosenColor = document.getElementById("preview").style.backgroundColor;
+    var choosenColor = getColorFromRanges();
     //3. add color to the circle.
     newColorElement.style.backgroundColor = choosenColor;
     //4. add circle next to existing circles.
@@ -79,6 +85,28 @@ function changePickerDivDisplay() {
             button.innerHTML = "Open Color Picker";
         }
         */
+}
+
+function addClickToCircles() {
+    var circles = document.getElementsByClassName("colorCircle");
+    for (var i = 0; i < circles.length; i++) {
+        circles[i].addEventListener("click", selectColor);
+    }
+}
+
+function selectColor(event) {
+    var activeColorsElements = document.getElementsByClassName("activeColor");  // return an array!
+    var oldActiveColor = activeColorsElements[0];
+    // oldActiveColor.classList.remove("activeColor"); // Maayan knows that there is only one!
+    // but if you dont know how many there are.... please use a loop!!!
+    for (var i = 0; i < activeColorsElements.length; i++) {
+        activeColorsElements[i].classList.remove("activeColor");
+    }
+
+    var clickedCircle = event.target;
+    // thanks Rotem:
+    //console.log(getComputedStyle(clickedCircle).getPropertyValue("background-color"));
+    clickedCircle.classList.add("activeColor");
 }
 
 

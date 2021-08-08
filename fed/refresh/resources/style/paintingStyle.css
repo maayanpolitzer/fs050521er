@@ -3,6 +3,8 @@ body {
 	margin: 0;
 }
 
+
+
 #wrapper {
 	text-align: center;
 }
@@ -47,6 +49,10 @@ ul {
 	margin: 10px;
 	border-radius: 50%;
 	display: inline-block;
+}
+
+.activeColor {
+	border: 5px solid #fff;
 }
 
 /* Buttons */

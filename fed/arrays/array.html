@@ -1,0 +1,44 @@
+<html>
+
+<head>
+    <script>
+        // old vars (you already know it!):
+        var x = 5.3;    // number
+        var b = true;   // boolean
+        var s = "4g";     // string
+        var obj = {     // object(key:value)
+            firstName: "Maayan",
+            lastName: "Politzer",
+            age: 35
+        };
+
+        // new stuff:
+        // array / מערך
+        // הגדרה למערך: מספר פרטים(משתנים) בתוך אותו משתנה
+        var m = ["fsvkljs", "sfljsf", s, "sdfksdf"];
+
+        var nameArray = ["Rotem", "Adir", "Adam", "Gil", "Michael", "Oleg"];
+        console.log(nameArray); // ["Rotem", "Adir", "Adam", "Gil", "Michael", "Oleg"]
+
+        console.log(nameArray[3]);  // Gil
+        console.log(nameArray.length);
+        nameArray.push("Eli");
+        nameArray.push("Bree");
+        console.log(nameArray);
+        nameArray.pop();
+        console.log(nameArray);
+        console.log(nameArray);
+
+        for (var i = 0; i < nameArray.length; i++) {
+            console.log(nameArray[i]);
+        }
+
+    </script>
+</head>
+
+<body>
+    <input />
+    <button>save</button>
+</body>
+
+</html>
