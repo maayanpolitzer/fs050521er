@@ -1,4 +1,59 @@
 var elad = true;
+var needToDraw = false;
+var canvas;
+
+var lastX;
+var lastY;
+
+var activeColor;
+
+/* will be called by onload (in body tag): */
+function onViewRenderedDone() {
+    addClickToCircles();
+
+    canvas = document.getElementsByTagName("canvas")[0];
+
+    canvas.addEventListener("mousedown", function (event) {
+        var activeCircle = document.getElementsByClassName("activeColor")[0];
+        activeColor = getComputedStyle(activeCircle).getPropertyValue("background-color");
+        needToDraw = true;
+        lastX = event.offsetX;
+        lastY = event.offsetY;
+        draw(event);
+    });
+    canvas.addEventListener("mouseup", function (event) {
+        needToDraw = false;
+    });
+    canvas.addEventListener("mouseleave", function (event) {
+        needToDraw = false;
+    });
+    canvas.addEventListener("mousemove", function (event) {   // anonymous function
+        if (needToDraw) {   // the same as: if (needToDraw == true){
+            draw(event);
+        }
+    });
+}
+
+
+function draw(event) {
+    // console.log("last position: " + (event.offsetX - event.movementX) + "," + (event.offsetY - event.movementY));
+    // console.log("current position: " + event.offsetX + "," + event.offsetY);
+    // console.log("******");
+    var ctx = canvas.getContext("2d");
+    console.log(ctx);
+    // first option (calculate last mouse position from event properties):
+    //ctx.moveTo(event.offsetX - event.movementX, event.offsetY - event.movementY); 
+
+    // second option (using global variables to save last mouse position):
+    ctx.beginPath();    // stop the last line, and start a new one.
+    ctx.moveTo(lastX, lastY);
+    ctx.lineTo(event.offsetX, event.offsetY);
+    ctx.strokeStyle = activeColor;
+    ctx.lineWidth = 4;
+    ctx.stroke();
+    lastX = event.offsetX;
+    lastY = event.offsetY;
+}
 
 function myFunction() {
     /*
@@ -9,7 +64,7 @@ function myFunction() {
     var blueInput = document.getElementById("blueInput");
     console.log(blueInput.value);
     */
-    color = getColorFromRanges();
+    var color = getColorFromRanges();
     var preview = document.getElementById("preview");
     preview.style.backgroundColor = color;
 }
@@ -94,9 +149,10 @@ function addClickToCircles() {
     }
 }
 
+
 function selectColor(event) {
     var activeColorsElements = document.getElementsByClassName("activeColor");  // return an array!
-    var oldActiveColor = activeColorsElements[0];
+    //var oldActiveColor = activeColorsElements[0];
     // oldActiveColor.classList.remove("activeColor"); // Maayan knows that there is only one!
     // but if you dont know how many there are.... please use a loop!!!
     for (var i = 0; i < activeColorsElements.length; i++) {
@@ -108,7 +164,5 @@ function selectColor(event) {
     //console.log(getComputedStyle(clickedCircle).getPropertyValue("background-color"));
     clickedCircle.classList.add("activeColor");
 }
-
-
 
 

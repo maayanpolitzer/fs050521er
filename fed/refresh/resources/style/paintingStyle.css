@@ -13,8 +13,9 @@ body {
 
 canvas {
 	border: 2px solid black;
-	width: 600px;
-	height: 400px;
+	/* SIZE ADDED FROM HTML ... */
+	/* width: 600px;
+	height: 400px; */
 	background-color: white;
 	border-radius: 10px;
 }

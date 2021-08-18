@@ -7,10 +7,11 @@
 	<script src="resources/script/myScripts.js"></script>
 </head>
 
-<body onload="addClickToCircles();">
+<body onload="onViewRenderedDone();">
 	<div id="wrapper">
 		<!-- all the tags will be in the #wrapper div -->
-		<canvas>
+		<!-- DONT KNOW WHY, BUT ADD WIDTH & HEIGHT TO CANVAS FROM HTML LIKE BELOW!! -->
+		<canvas width="600" height="400">
 			Your browser does not support HTML 5.
 		</canvas>
 		<ul id="colorList">
