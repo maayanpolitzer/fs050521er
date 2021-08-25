@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Maayan Politzer | Software Developer</title>
     <link href="resources/style/style.css" rel="stylesheet">
     <link href="resources/style/queries.css" rel="stylesheet">
@@ -11,11 +12,14 @@
     <section id="homeSection">
         <nav id="menu">
             <img id="logo" src="resources/img/logo.png" alt="Logo image" />
-            <ul>
+            <ul id="oleg">
                 <li><a href="#">Home</a></li>
                 <li><a href="#">projects</a></li>
                 <li><a href="#">contact me</a></li>
             </ul>
+            <a onclick="changeDisplay('oleg')" class="mobile-nav-icon">
+                <ion-icon name="menu-outline"></ion-icon>
+            </a>
         </nav>
         <div id="links">
             <a class="btn btn-full" href="#">Who is Maayan?</a>

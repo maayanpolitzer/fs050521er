@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        #first {
+            display: flex;
+            flex-direction: row;
+        }
+
+        img {
+            height: 200px;
+            width: 200px;
+        }
+    </style>
+    <script>
+
+        var imagesUrl = [
+            "https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80",
+            "https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "https://st.depositphotos.com/1428083/2946/i/600/depositphotos_29460297-stock-photo-bird-cage.jpg",
+            "https://cdn.pixabay.com/photo/2015/04/23/22/.jpg",
+            "https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aHVtYW58ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80"
+        ];
+
+        function initPage() {
+            document.querySelector("#mainImg").src = imagesUrl[0];
+            var div = document.getElementById("first");
+            for (var i = 0; i < imagesUrl.length; i++) {
+                var image = document.createElement("img");
+                image.src = imagesUrl[i];
+                image.addEventListener("click", changeImage2);
+                div.appendChild(image);
+            }
+        }
+
+        /*
+        function initPage() {
+            var div = document.getElementById("first");
+            var images = div.getElementsByTagName("img");
+            for (var i = 0; i < images.length; i++) {
+                images[i].addEventListener("click", changeImage2);
+            }
+        }
+        */
+
+        function changeImage2(event) {
+            console.log(event);
+            var imageSrc = event.target.src;
+            document.querySelector("#mainImg").src = imageSrc;
+        }
+
+        function changeImage(element) {
+            var imageSrc = element.src;
+            document.querySelector("#mainImg").src = imageSrc;
+        }
+    </script>
+</head>
+
+<body onload="initPage()">
+    <div id="first">
+
+    </div>
+    <div id="main">
+        <img id="mainImg" src="" />
+    </div>
+
+</body>
+
+</html>

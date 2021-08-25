@@ -28,4 +28,16 @@ function changeMenuToNormal(event) {
     document.getElementById("menu").classList.remove("sticky");
 }
 
+function changeDisplay(elementId) {
+    var menuList = document.getElementById(elementId);
+    var display = getComputedStyle(menuList).getPropertyValue("display");
+    if (display == "none") {
+        // display the menu...
+        menuList.style.display = "flex";
+    } else {
+        // hide the menu...
+        menuList.style.display = "none";
+    }
+}
+
 
