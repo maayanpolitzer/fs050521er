@@ -15,6 +15,8 @@ body {
     background-position: center center;
 }
 
+
+
 #links{
     display: inline-block;
     position:absolute;
@@ -27,6 +29,17 @@ nav {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    width: 100%;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* background-color: rgba(255,255,255, 0.7) */
+    background-color: pink;
+    z-index: 999;
 }
 
 #logo {
@@ -41,7 +54,7 @@ nav {
     margin: 0;
     list-style: none;
     padding: 0;
-    width: 500px;
+    width: 700px;
     height: 100px
 }
 
@@ -109,7 +122,7 @@ nav {
 
 #prjectsSection {
     background-color: green;
-    height: 100vh;
+    padding-bottom: 32px;
 }
 
 h2 {
@@ -165,6 +178,21 @@ h2 {
 
 
 #contactSection {
-    background-color: red;
+    /* background-color: red; */
     height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: flex-start;
 }
+
+#map {
+    background-color:pink;
+    width: 50%;
+}
+
+#form {
+    /* background-color: yellow; */
+    width:50%;
+}
+

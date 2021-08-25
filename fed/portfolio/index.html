@@ -65,9 +65,36 @@
             </div>
         </div>
     </section>
-    <section id="contactSection"></section>
+    <section id="contactSection">
+        <div id="map">
+        </div>
+        <div id="form">
+            <form>
+                <fieldset>
+                    <legend>Leave a note</legend>
+                    <label>Full name</label>
+                    <br />
+                    <input type="text" placeholder="Enter your name" /><br /><br />
+                    <label>Email</label>
+                    <br />
+                    <input type="email" placeholder="Enter your Email" /><br /><br />
+                    <label>Phone</label>
+                    <br />
+                    <input type="phone" placeholder="Enter your phone" /><br /><br />
+                    <label>Message</label>
+                    <br />
+                    <textarea></textarea>
+                    <br /><br />
+                    <input type="submit" value="Send message" />
+                </fieldset>
+            </form>
+        </div>
+    </section>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="resources/script/functions.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=&v=weekly"
+        async></script>
 </body>
 
 </html>
