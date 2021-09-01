@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .green {
+            color: green;
+        }
+
+        .red {
+            color: red;
+        }
+    </style>
+    <script>
+        var tasks = [
+            { title: "Wash the dishes", completed: false },
+            { title: "Watch tv", completed: true },
+            { title: "Run 10 km", completed: true },
+            { title: "Upgrade the wifi (Elad)", completed: false }
+        ];
+
+        //console.log(tasks[0].title)  ===>> "Wash the dishes"
+
+        function createList() {
+            //1:
+            // for every task, add <li/> with the title.
+            var list = document.querySelector("#list");
+            for (var i = 0; i < tasks.length; i++) {
+                var taskTitle = tasks[i].title;
+                var completed = tasks[i].completed;
+                // list.innerHTML += "<li>" + taskTitle + "</li>"; // working but not best practice!
+                var li = document.createElement("li");
+                li.innerHTML = taskTitle;
+                //li.style.color = completed ? "green" : "red";
+                //li.classList.add(completed ? "green" : "red"); // preffered way!
+                if (completed) {
+                    // color the text in green;
+                    li.classList.add("green");
+                } else {
+                    // color red.
+                    li.classList.add("red");
+                    // add button.
+                    var button = document.createElement("button");
+                    button.innerHTML = "finish task";
+                    button.setAttribute("index", i);
+                    button.addEventListener("click", finishTaskClick);
+                    li.appendChild(button);
+                }
+                list.appendChild(li);
+            }
+            //2:
+            // if the task is completed, color the text in green.
+            // if the task is NOT completed, color the text in red and add a button in the that will complete the task (in the array, and color green and remove the button!) 
+        }
+
+        function finishTaskClick(event) {
+            var button = event.target;
+            button.style.display = "none";
+            var index = button.getAttribute("index");
+            tasks[index].completed = true;
+            var parentLi = button.parentElement;
+            parentLi.classList.replace("red", "green");
+        }
+    </script>
+</head>
+
+<body onload="createList();">
+    <div>
+        <ul id="list">
+
+        </ul>
+    </div>
+</body>
+
+</html>

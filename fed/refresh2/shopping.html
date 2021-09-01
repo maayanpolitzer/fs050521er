@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playlist editor</title>
+    <script>
+        var myCart = [];
+        var products = [];
+
+        function generateProducts() {
+            fetch("https://raw.githubusercontent.com/dotnet-presentations/ContosoCrafts/master/src/wwwroot/data/products.json")
+                .then(response => response.json())
+                .then(json => {
+                    products = json;
+                    for (var i = 0; i < products.length; i++) {
+                        products[i].price = Math.floor(Math.random() * 100);
+                        products[i].availableAmount = Math.floor(Math.random() * 5);
+                    }
+                    createUIfromProducts();
+                });
+        }
+
+        function createUIfromProducts() {
+            console.log("create ui from products");
+            console.log(products);
+        }
+    </script>
+</head>
+
+<body onload="generateProducts()">
+
+
+</body>
+
+</html>
