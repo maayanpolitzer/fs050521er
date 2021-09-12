@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        var newBtnText = "Dont click me!";
+        $(document).ready(function () {
+
+            $("#myBtn").html(newBtnText);
+            //document.querySelector("#myBtn").innerHTML = newBtnText;
+
+            $("#wallaLink").attr("href", "https://www.walla.co.il")
+            //document.getElementById("wallaLink").setAttribute("href", "https://www.walla.co.il");
+
+            console.log($("#wallaLink").attr("href"));
+            //console.log(document.querySelector("#wallaLink").getAttribute("href"));
+
+            $("#myBtn").click(function () {
+                var name = $("#nameInput").val("Great question!");
+                //var name = document.getElementById("nameInput").value;
+                console.log(name);
+            });
+
+            $("<li/>").html("first option").val("1").appendTo($("#btn2"));
+            // var li = document.createElement("li");
+            // li.innerHTML = "first option";
+            // li.setAttribute("value", "1");
+            // document.querySelector("#btn2").appendChild(li);
+        });
+
+
+    </script>
+    <title>jQuery basics</title>
+</head>
+
+<body>
+    <button id="myBtn">click me</button>
+    <a id="wallaLink" href="#">Go to walla</a>
+    <input id="nameInput" type="text" placeholder="Enter your name" />
+    <br />
+    <button id="btn2">click</button>
+    <div id="myDiv"
+        style="background-color: pink; height: 100px; width:100px; border: 4px solid black; padding: 10px; margin: 6px;">
+    </div>
+    <script>
+        console.log("height: " + $("#myDiv").height());
+        console.log("innerHeight: " + $("#myDiv").innerHeight());
+
+        $("#btn2").click(function () {
+            console.log("start fade");
+            var time = 3000;
+            
+            //$("#myDiv").fadeToggle(time);
+            // $("#myDiv").fadeToggle(time, function () {
+            //     // callback:
+            //     console.log("fade end!");
+            // });
+
+            /*
+            var interval = setInterval(function () {
+                //console.log("set interval called!");
+                $("#myDiv").css("opacity", $("#myDiv").css("opacity") - 0.03);
+                if ($("#myDiv").css("opacity") == 0) {
+                    clearInterval(interval);
+                    console.log("done");
+                }
+            }, 10);
+            */
+
+            /*
+            var t = setTimeout(function () {
+                console.log("wow");
+
+            }, 4000);
+
+            setTimeout(function () {
+                clearTimeout(t);
+                console.log("d");
+            }, 2000);
+            */
+        });
+    </script>
+</body>
+
+</html>

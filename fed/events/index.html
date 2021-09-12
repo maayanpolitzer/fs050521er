@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .mivzak {
+            border: 1px solid black;
+            margin: 10px;
+            background-color: #ccc;
+            padding: 40px;
+        }
+
+        .mivzak h2 {}
+
+        .mivzak p {}
+    </style>
+</head>
+
+<body>
+    <div id="mivzakim">
+
+    </div>
+    <script>
+        var data = [
+            { id: 1, title: "כותרת המבזק", content: "חשוד ברצח ברח..." },
+            { id: 2, title: "כותרת המבזק", content: "חשוד ברצח ברח..." },
+            { id: 3, title: "כותרת המבזק", content: "חשוד ברצח ברח..." },
+            { id: 4, title: "כותרת המבזק", content: "חשוד ברצח ברח..." }
+        ];
+
+        var mivzakim = document.getElementById("mivzakim");
+
+        for (var i = 0; i < data.length; i++) {
+            var title = document.createElement("h2");
+            title.innerHTML = data[i].title;
+            var content = document.createElement("p");
+            content.innerHTML = data[i].content;
+            var div = document.createElement("div");
+            div.classList.add("mivzak");
+            div.appendChild(title);
+            div.setAttribute("id", data[i].id);
+            div.appendChild(content);
+            div.addEventListener("click", clickHandler);
+            mivzakim.appendChild(div);
+        }
+
+        function clickHandler(event) {
+            var clickedDiv = event.target;
+            console.log(clickedDiv.getAttribute("id"));
+        }
+    </script>
+</body>
+
+</html>
