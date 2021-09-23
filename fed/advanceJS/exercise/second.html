@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        /**
+         * create a Student Object (costructor function) that get the params id, fullName and phoneNumber.
+         * for each Student create an empty grades array, boolean active = true and numOfWarnings = 0.
+         * for each Student add a function "addGrade" that will add the grade to the grades array, calles sendSms function if needed and changes the active proprty if needed.
+         * a fail test is with grade 59 or less.
+         * for each fail test send sms to the student.
+         * after 3 failed test the student is not active anymore.
+         */
+
+        var smsMessagesText = [
+            "You failed a test",
+            "This is your second warning",
+            "You are no longer a student in the course"
+        ];
+
+        var students = [
+            new Student(1, "Maayan Politzer", "051-1111111"),
+            new Student(2, "Elad Berger", "052-2222222"),
+            new Student(3, "Ben Gamliel", "053-3333333")
+        ];
+
+        function sendSms(student) {
+            var text = smsMessagesText[student.numOfWarnings];
+            student.numOfWarnings++;
+            console.log("SMS to " + student.fullName + " (" + student.phoneNumber + ")", text);
+        }
+
+        addGradesToStudents([40, 75, 80]);  // Maayan grade is 40, Elad grade is 75, Ben grade is 80
+        addGradesToStudents([50, 85, 90]);
+        addGradesToStudents([55, 90, 70]);
+        addGradesToStudents([50, 50]);  // Maayan is not longer a student...
+
+        /**
+         * add grade for each student that is active.
+         */
+        function addGradesToStudents(grades) {
+
+        }
+
+        /**
+         * return the average grade by student id
+         */
+        function getAverageGradesById(id) {
+
+        }
+
+        /**
+         *  if you want you can add UI for the exercise.
+         */
+
+    </script>
+</body>
+
+</html>

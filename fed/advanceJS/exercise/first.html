@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        function Person(id, firstName, lastName, age, hobbies){
+            this.id = id;
+            this.name = {
+                firstName: firstName,
+                lastName: lastName,
+                fullName = (firstName + " " + lastName).toUpperCase()
+            };
+            this.hobbies = hobbies;
+        }
+
+        function Hobby(name, skill){
+            this.name = name;
+            this.skill = skill;
+        }
+
+        var people = [
+            new Person(1, "Maayan", "Politzer", [new Hobby("teaching", 4), new Hobby("coding", 4), new Hobby("basketball", 3), new Hobby("cooking",4)]),
+            new Person(2, "Eli", "Cohen", [new Hobby("cooking", 7)]),
+            new Person(3, "Moshe", "Levi", [new Hobby("coding", 9), new Hobby("driving", 3)]),
+            new Person(4, "Yossi", "Goldman", [new Hobby("basketball", 7)])
+        ];
+
+        /**
+         * return the full name of the best skill in "hobbyName".
+         */
+        function getBest(hobbyName){
+            
+        }
+
+        /**
+         * return the average skill in "hobbyName" between all people who has this hobby.
+         */ 
+        function getAverage(hobbyName){
+
+        }
+
+        /**
+         * change skill value to a person by it's id, at certain hobbyName 
+         */ 
+        function upgradeSkill(id, hobbyName, newSkill){
+
+        }
+
+        console.log(getBest("basketball")); // YOSSI GOLDMAN
+        console.log(getAverage("cooking")); // 5.5
+        upgradeSkill(1, "codding", 5);      // please check if it workes...
+    </script>
+</body>
+</html>
