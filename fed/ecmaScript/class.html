@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // in order to create an object, we can use constractor:
+        let p1 = new Person("moshe", 60);
+        let p2 = new Person("Eli", 30);
+        p2.sayHi();
+
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+            this.sayHi = function () {
+                console.log(`hi from ${this.name}`);
+            }
+            this.sayBye = () => {
+                console.log("bye");
+            }
+        }
+
+        // now we can use classes / מחלקה: (Template)
+        class Vehicle {
+
+            constructor(color) {
+                this.color = color;
+            }
+
+            sayHi() {
+                console.log("hi 2: " + this.color);
+            }
+
+            sayBye() {
+                console.log("bye");
+            }
+        }
+
+        class PrivateCar extends Vehicle {
+
+            constructor() {
+                super("green");
+                this.numOfWheels = 4;
+            }
+
+        }
+
+        //        const v1 = new Vehicle("blue");
+        //        const v2 = new Vehicle("pink");
+        const pc1 = new PrivateCar();
+        pc1.sayHi();
+//        v1.sayHi();
+//        v2.sayHi();
+
+    </script>
+</body>
+
+</html>

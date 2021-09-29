@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let array = [-4, -5];
+        //const newArray = double(array);
+        /*
+        const newArray = array.map(function(item){
+            return item * 2;
+        });
+        */
+
+        const newArray = array.map(number => number * 2);
+
+        // learn about array.filter();
+
+        console.log(newArray);
+
+        function double(arr) {
+
+            let newArr = [];
+            for (let i = 0; i < arr.length; i++) {
+                let item = arr[i];
+                newArr.push(item * 2);
+            }
+            return newArr;
+
+            /*
+            //find highest number in array:
+            let highestUntilNow = arr[0];
+            for (let i = 1; i < arr.length; i++) {
+                if (arr[i] > highestUntilNow) {
+                    highestUntilNow = arr[i];
+                }
+            }
+            console.log(highestUntilNow);
+            */
+        }
+
+    </script>
+</body>
+
+</html>

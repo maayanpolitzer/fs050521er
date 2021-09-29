@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        /*
+        let a = 6;
+        const b = 34;
+        if (b > 10) {
+            b = 4;
+            let a = -40;
+            console.log("inside the if statement: " + a);
+        }
+        console.log("outside the if statement: " + a);
+        console.log("b: " + b);
+        */
+
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+            this.country = "Israel";
+            this.countryShort = "IL";
+        }
+
+        let p1 = new Person("Maayan", 35);
+
+        const { name, age } = p1;
+        // const name = p1.name;
+        // const age = p1.age;
+
+        // const overview = "Hi, I'm " + name +", and i'm " + age + " years old";
+        // Template string.
+        const overview = `Hi' Im ${name}, and i'm ${age} years old.`;
+        //console.log(overview);
+
+
+
+    </script>
+</body>
+
+</html>

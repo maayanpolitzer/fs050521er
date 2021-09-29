@@ -7,14 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    
     <script>
-        function Person(id, firstName, lastName, age, hobbies){
+        function Person(id, firstName, lastName, hobbies){
             this.id = id;
             this.name = {
                 firstName: firstName,
                 lastName: lastName,
-                fullName = (firstName + " " + lastName).toUpperCase()
+                fullName: (firstName + " " + lastName).toUpperCase()
             };
             this.hobbies = hobbies;
         }

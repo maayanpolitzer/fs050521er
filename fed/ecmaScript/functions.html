@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // optional / default arguments for function:
+        function logHigherNumber(x = 6, y = 12) {
+            console.log(`x: ${x}`);   // console.log("x: " + x);
+            console.log(`y: ${y}`);
+            console.log(x > y ? x : y);
+        }
+
+        //logHigherNumber(5);
+
+        /*
+        let sum = function (x, y) {
+            return x + y;
+        }
+
+        console.log(sum(5, 2));
+
+        sum = function (x, y) {
+            return x - y;
+        }
+
+        console.log(sum(5, 2));
+        */
+
+        /*
+        const sum = function (x, y) {
+            return x + y;
+        }
+        */
+
+        // arrow functions: 
+        /*
+        const sum = (x ,y) => {
+            return x + y;
+        };
+        */
+       
+        // two arguments only return:
+        const sum = (x,y) => x + y;
+
+        // one argument: no () and only return
+        const multiBy2 = number => number * 2;
+
+        const power = num => {
+            console.log(num);
+            const result = num * num;
+            return result;
+        }
+
+        const nothing = () => {
+            console.log("working");
+        }
+
+        //console.log(sum(5, 2));
+
+        console.log(multiBy2(20));
+
+
+
+    </script>
+</body>
+
+</html>

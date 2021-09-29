@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>React</title>
+    <script type="application/javascript" src="https://unpkg.com/react@16.0.0/umd/react.production.min.js"></script>
+    <script type="application/javascript"
+        src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.production.min.js"></script>
+    <script type="application/javascript" src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+        class Ben extends React.Component {
+
+            constructor(props) {
+                super(props);
+                this.text = props.text;
+            }
+
+            render() {
+                return <div><hr /><h1>{this.text}</h1></div>;
+            }
+        }
+
+        function Rotem() {
+            const rows = ["first", "second", "Third"];
+            const d = rows.map((item, index) => <Ben text={rows[index]} />);
+            return d;
+        }
+
+        const rootElement = document.getElementById("root");
+        ReactDOM.render(<Rotem />, rootElement);
+    </script>
+</body>
+
+</html>
