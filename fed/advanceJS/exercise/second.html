@@ -33,6 +33,13 @@
             new Student(3, "Ben Gamliel", "053-3333333")
         ];
 
+        function Student(...) {
+            ...
+            this.grades = [];
+            this.active = true;
+            this.addGrade = function.....
+        }
+
         function sendSms(student) {
             var text = smsMessagesText[student.numOfWarnings];
             student.numOfWarnings++;
@@ -43,6 +50,7 @@
         addGradesToStudents([50, 85, 90]);
         addGradesToStudents([55, 90, 70]);
         addGradesToStudents([50, 50]);  // Maayan is not longer a student...
+        console.log(getAverageGradesById(2));
 
         /**
          * add grade for each student that is active.

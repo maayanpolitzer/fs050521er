@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
-        function Person(id, firstName, lastName, hobbies){
+        function Person(id, firstName, lastName, hobbies) {
             this.id = id;
             this.name = {
                 firstName: firstName,
@@ -18,13 +20,13 @@
             this.hobbies = hobbies;
         }
 
-        function Hobby(name, skill){
+        function Hobby(name, skill) {
             this.name = name;
             this.skill = skill;
         }
 
         var people = [
-            new Person(1, "Maayan", "Politzer", [new Hobby("teaching", 4), new Hobby("coding", 4), new Hobby("basketball", 3), new Hobby("cooking",4)]),
+            new Person(1, "Maayan", "Politzer", [new Hobby("teaching", 4), new Hobby("coding", 4), new Hobby("basketball", 3), new Hobby("cooking", 4)]),
             new Person(2, "Eli", "Cohen", [new Hobby("cooking", 7)]),
             new Person(3, "Moshe", "Levi", [new Hobby("coding", 9), new Hobby("driving", 3)]),
             new Person(4, "Yossi", "Goldman", [new Hobby("basketball", 7)])
@@ -33,27 +35,64 @@
         /**
          * return the full name of the best skill in "hobbyName".
          */
-        function getBest(hobbyName){
-            
+        function getBest(hobbyName) {
+            let bestSkillSoFar = 0;
+            let bestPersonFullNameSoFar = null;
+            for (let i = 0; i < people.length; i++) {
+                let person = people[i];
+                for (let j = 0; j < person.hobbies.length; j++) {
+                    let hobby = person.hobbies[j];
+                    if (hobbyName == hobby.name) {
+                        if (hobby.skill > bestSkillSoFar) {
+                            bestSkillSoFar = hobby.skill;
+                            bestPersonFullNameSoFar = person.name.fullName;
+                        }
+                    }
+                }
+            }
+            return bestPersonFullNameSoFar;
         }
 
         /**
          * return the average skill in "hobbyName" between all people who has this hobby.
-         */ 
-        function getAverage(hobbyName){
-
+         */
+        function getAverage(hobbyName) {
+            let skillSum = 0;
+            let peopleCount = 0;
+            for (let i = 0; i < people.length; i++) {
+                let person = people[i];
+                for (let j = 0; j < person.hobbies.length; j++) {
+                    let hobby = person.hobbies[j];
+                    if (hobbyName == hobby.name) {
+                        skillSum += hobby.skill;
+                        peopleCount++;
+                    }
+                }
+            }
+            return peopleCount > 1 ? (skillSum / peopleCount) : skillSum;
         }
 
         /**
          * change skill value to a person by it's id, at certain hobbyName 
-         */ 
-        function upgradeSkill(id, hobbyName, newSkill){
-
+         */
+        function upgradeSkill(id, hobbyName, newSkill) {
+            for (let i = 0; i < people.length; i++) {
+                let person = people[i];
+                if (id == person.id) {
+                    for (let j = 0; j < person.hobbies.length; j++) {
+                        let hobby = person.hobbies[j];
+                        if (hobbyName == hobby.name) {
+                            hobby.skill = newSkill;
+                        }
+                    }
+                }
+            }
         }
 
-        console.log(getBest("basketball")); // YOSSI GOLDMAN
-        console.log(getAverage("cooking")); // 5.5
-        upgradeSkill(1, "codding", 5);      // please check if it workes...
+        // console.log(getBest("basketball")); // YOSSI GOLDMAN
+        // console.log(getAverage("cooking")); // 5.5
+        // upgradeSkill(1, "coding", 5);      // please check if it workes...
     </script>
 </body>
+
 </html>
