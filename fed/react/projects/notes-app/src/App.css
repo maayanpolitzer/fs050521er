@@ -1,0 +1,25 @@
+.home {
+    width: 1200px;
+    margin: 0 auto; 
+}
+/* SMALL LAPTOPS */
+@media (min-width: 970px) and (max-width: 1200px) {
+    .home {
+        width: 970px;
+    }
+}
+
+/* TABLETS */
+@media (min-width: 768px) and (max-width: 970px) {
+    .home {
+        width: 768px;
+    }
+}
+
+/* PHONE */
+@media  (max-width: 767px) {
+    .home {
+        width: 100vw;
+    }
+}
+

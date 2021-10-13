@@ -1,0 +1,24 @@
+header {
+    padding: 1vh 0;
+    display: flex;
+    flex-direction: row;
+}
+
+header ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+header ul li {
+    display: inline-block;
+    margin: 0 16px;
+    padding: 4px 8px;
+}
+
+header ul li a {
+    text-decoration: none;
+}
+
+#logo {
+    height: 8vh;
+}
