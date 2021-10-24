@@ -1,6 +1,7 @@
 import { useState } from "react";
+import Title from './common/Title';
 
-var _ = require('lodash');
+var lodash = require('lodash');
 
 function LoginForm() {
 
@@ -72,7 +73,7 @@ function LoginForm() {
         // learning spread operator:
         //const tempUser = { ...user, [e.target.name]: e.target.value };
         // trying with Lodash dependency. (library)
-        const tempUser = _.set(user, e.target.name, e.target.value);
+        const tempUser = lodash.set(user, e.target.name, e.target.value);
         setUser(tempUser);
     }
 
@@ -80,9 +81,7 @@ function LoginForm() {
 
     return (    // jsx
         <div>
-            <h3>
-                {formTitle}
-            </h3>
+            <Title content={formTitle} lev="false" />
             <input type="email" name="email" onChange={updateUser} placeholder="Email" />
             <br />
             <input type="password" name="password" onChange={updateUser} placeholder="Password" />

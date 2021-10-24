@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const arr = ["Natali", "Itzik", "Maayan"];
+        /*
+        const arr2 = [];
+        for (let i = 0; i < arr.length; i++) {
+            arr2.push(arr[i]);
+        }
+        arr2.push("Bree");
+        */
+        const arr2 = [...arr, "bree"];
+        //console.log(arr2);
+
+        const obj1 = {
+            first: "Maayan",
+            last: "Politzer",
+            age: 35
+        };
+        /*
+        const obj2 = {};
+        for (let key in obj1) {
+            obj2[key] = obj1[key];
+        }
+        obj2.address = "Tzur yitzhak";
+        */
+        const obj2 = { ...obj1, address: "wow" }
+
+        console.log(obj2);
+
+    </script>
+</body>
+
+</html>
