@@ -1,18 +1,27 @@
 import axios from "axios";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function TaskList() {
 
+    const [tasks, setTasks] = useState([]);
+
+    // this function will be called when the component is loaded. (only once!);
+    // הפונקציה useEffect מקבילה לבנאי
+    // the second parameter ([]), will tell react when to call this function again.
+    // react hook
+    useEffect(() => {
+        getTasks();
+    }, []);
+
+    const getTasks = async () => {
+        console.log("load the tasks");
+        const response = await axios.get("/notes");
+        setTasks(response.data);
+    }
+
+
     /*
-    const tasks = [{
-        id: 1,
-        title: "task 1 title",
-        description: "task 1 desc"
-    }, {
-        id: 2,
-        title: "task 2 title",
-        description: "task 2 desc"
-    }];
-    */
     axios.get("/notes").then(response => {
         const tasks = response.data;
         let display = null;
@@ -29,6 +38,7 @@ function TaskList() {
                 </div>
         }
     });
+    */
 
     /*
     let display = null;
@@ -48,7 +58,13 @@ function TaskList() {
 */
 
     return (
-        <h1>hello</h1>
+        <div>
+            <ul>
+                {tasks.map((task) => {
+                    return <li key={task.id}><Link to={`tasks/${task.id}`}>{task.title}</Link></li>
+                })}
+            </ul>
+        </div>
     );
 }
 
