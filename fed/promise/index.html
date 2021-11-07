@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+
+        function y() {
+            setTimeout(() => {
+                console.log("timeout is done...");
+                return 5;
+            }, 4000);
+        }
+
+        function yFixed() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    console.log("the fixed timeout is done...");
+                    resolve(5);
+                }, 3000);
+            });
+        }
+
+
+        // Promise have 3 statuses: pending - waiting, didnt sent response yet/fullfield - response sent successfully/rejected - response sent as an error
+        // our options:
+        // 1. come back when the promise changes from pending to something else
+        /*
+        console.log("before");
+        yFixed().then(number => {
+            console.log(number);
+        });
+        console.log("after");
+        */
+
+        // 2. wait for the promise to end.
+        main();
+
+        //console.log(y());   // wait x seconds until getting the return statement.
+
+        async function main() {
+            console.log("before (2)");
+            let response = await yFixed();
+            console.log(response);
+            console.log("after (2)");
+        }
+
+    </script>
+
+</body>
+
+</html>

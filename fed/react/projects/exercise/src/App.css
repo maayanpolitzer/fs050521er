@@ -1,0 +1,21 @@
+.app {
+  display: flex;
+  flex-direction: row;
+}
+
+.app2 {
+  display: flex;
+  flex-direction: column;
+}
+
+.child {
+  width: 50%;
+}
+
+.left {
+  background-color: pink;
+}
+
+.right {
+  background-color: green;
+}
