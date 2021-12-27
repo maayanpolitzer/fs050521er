@@ -19,9 +19,17 @@ public class DynamicArray {
     }
 
     public void add(int index, int value){
-        if(index <= counter){
+        if(index >= counter || index < 0){
             throw new IndexOutOfBoundsException();  // like return it stops the method.
         }
+        if(array.length == counter){
+            createBiggerArray();
+        }
+        for(int i = counter - 1; i >= index; i--){
+            array[i + 1] = array[i];
+        }
+        array[index] = value;
+        counter++;
     }
 
     public int size(){
