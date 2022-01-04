@@ -11,6 +11,15 @@ public class DynamicArray {
         counter = 0;
     }
 
+    public void set(int index, int newValue){
+        if(index >= counter || index < 0){
+            throw new IndexOutOfBoundsException();  // like return it stops the method.
+        }
+        array[index] = newValue;
+    }
+
+    // best: O(1)
+    // worst: O(n)
     public void add(int value){
         if(array.length == counter){
             createBiggerArray();
@@ -60,7 +69,56 @@ public class DynamicArray {
     }
 
     public void clear(){
+        counter = 0;
+    }
 
+    public boolean contains(int value){
+        return indexOf(value) >= -1;
+        /*
+        for(int i = 0; i < counter; i++){
+            if(array[i] == value){
+                return true;
+            }
+        }
+        return false;
+         */
+    }
+
+    public int get(int index){
+        if(index >= counter || index < 0){
+            throw new IndexOutOfBoundsException();  // like return it stops the method.
+        }
+        return array[index];
+    }
+
+    public int indexOf(int value){
+        for(int i = 0; i < counter; i++){
+            if(array[i] == value){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public void remove(int index){
+        if(index >= counter || index < 0){
+            throw new IndexOutOfBoundsException();  // like return it stops the method.
+        }
+        for(int i = index; i < counter - 1; i++){
+            array[i] = array[i + 1];
+        }
+        counter--;
+    }
+
+    // extra:
+    public void addAll(DynamicArray x){
+        for(int i = 0; i < x.size(); i++){
+            add(x.get(i));
+        }
+    }
+
+    public boolean isEmpty(){
+        return counter == 0;
     }
 
 }
