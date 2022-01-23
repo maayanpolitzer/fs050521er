@@ -3,6 +3,7 @@ package com.company;
 
 import java.util.ArrayList;
 
+// sub-class: (IS A)
 public class Student extends Person {
 
     private ArrayList<Short> grades;

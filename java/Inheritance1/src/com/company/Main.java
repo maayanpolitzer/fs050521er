@@ -14,11 +14,27 @@ public class Main {
         Student s1 = new Student("Moshe", "1234234");
 
         ArrayList<Person> people = new ArrayList<>();
+        people.add(p1);
+        people.add(p2);
         people.add(t1);
         people.add(s1);
+        people.add(new Guard("Maayan", "0512345678"));
 
-        for(int i = 0; i < people.size(); i++){
-            System.out.println(people.get(i).getPhone());
+        for(Person p : people){
+            //p.getCourse();
+            /*
+            if(p instanceof Teacher) {
+                Teacher x = (Teacher) p;
+                x.getCourse();
+            }
+
+             */
+
+        }
+
+
+//        for(int i = 0; i < people.size(); i++){
+//            System.out.println(people.get(i).getPhone());
 //            if(people.get(i) instanceof Student) {
 //                Student s = (Student) people.get(i);
 //                System.out.println(s.getGrades());
@@ -26,7 +42,7 @@ public class Main {
 //                Teacher t = (Teacher) people.get(i);
 //                System.out.println(t.getCourse());
 //            }
-        }
+//        }
 
         // next lesson:
         // equals!!!!!!!

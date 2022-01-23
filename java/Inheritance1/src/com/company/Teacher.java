@@ -1,5 +1,7 @@
 package com.company;
 
+
+// sub-class:
 public class Teacher extends Person {
 // הבנאי של מורה חייב להפעיל בתוכו את הבנאי של המחלקה שהוא יורש ממנה
 

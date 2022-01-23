@@ -1,6 +1,6 @@
 package com.company;
 
-// Super class / Parent class
+// Super class
 public class Person{
 
     private String phone;
