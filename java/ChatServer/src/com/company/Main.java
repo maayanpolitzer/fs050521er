@@ -11,7 +11,7 @@ public class Main {
     public static void main(String[] args) {
 
         try {
-            ServerSocket serverSocket = new ServerSocket(9000);
+            ServerSocket serverSocket = new ServerSocket(Consts.SERVER_PORT);
             while(true){
                 System.out.println("waiting....");
                 Socket client = serverSocket.accept();  // blocking method!
