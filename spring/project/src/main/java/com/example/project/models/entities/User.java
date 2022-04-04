@@ -7,52 +7,28 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.*;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity(name = "users")
 public class User {
 
-    private static int counter = 1;
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String email;
     private String password;
     private String firstName;
     private String lastName;
 
-    public User(String fullName){
-        String[] words = fullName.split(" ");
-        this.firstName = words[0];
-        this.lastName = words[1];
-    }
-
     public User(UserRequest userRequest) {
-        this.id = counter++;
         this.email = userRequest.getEmail();
         this.password = userRequest.getPassword();
         this.firstName = userRequest.getFirstName();
         this.lastName = userRequest.getLastName();
-    }
-
-    public String getFullName(){
-        return this.firstName + " " + this.lastName;
-    }
-
-
-    public void updateUserDetails(User newUser){
-        if(newUser.getEmail() != null){
-            setEmail(newUser.getEmail());
-        }
-        if(newUser.getPassword() != null){
-            setPassword(newUser.getPassword());
-        }
-        if(newUser.getFirstName() != null){
-            setFirstName(newUser.getFirstName());
-        }
-        if(newUser.getLastName() != null){
-            setLastName(newUser.getLastName());
-        }
     }
 
     @Override

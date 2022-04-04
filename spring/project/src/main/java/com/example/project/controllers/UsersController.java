@@ -1,87 +1,46 @@
 package com.example.project.controllers;
 
 import com.example.project.models.entities.User;
+import com.example.project.models.requests.UserRequest;
+import com.example.project.models.responses.UserResponse;
+import com.example.project.repositories.UsersRepository;
+import com.example.project.services.UsersService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/users2")
 public class UsersController {
 
-    private static ArrayList<String> users = new ArrayList<>();
+    // IOC
+    @Autowired
+    UsersRepository usersRepository;
 
-    // GET http://localhost:8080/users
     @GetMapping
-    public ArrayList<String> getAllUsers(){
-        return users;
-    }
-
-    // GET http://localhost:8080/users/0
-    @GetMapping("/{index}")
-    public String getUserByIndex(
-           @PathVariable int index
-    ){
-        if(index < users.size()) {
-            return users.get(index);
+    public ResponseEntity getAllUsers(){
+        Iterable<User> users = usersRepository.findAll();
+        Iterator<User> iterator = users.iterator();
+        ArrayList<UserResponse> responseList = new ArrayList<>();
+        while(iterator.hasNext()){
+            User user = iterator.next();
+            responseList.add(new UserResponse(user));
         }
-        return null;
+        return new ResponseEntity(responseList, HttpStatus.OK);
     }
 
     @PostMapping
-    public String createNewUser(
-        @RequestBody User user
-    ){
-        users.add(user.getFullName());
-        return user.getFullName();
+    public ResponseEntity createNewUser(
+            @RequestBody UserRequest userRequest
+            ){
+        User user = new User(userRequest);
+        usersRepository.save(user);
+        return new ResponseEntity(new UserResponse(user), HttpStatus.CREATED);
     }
-
-    @DeleteMapping("/{index}")
-    public String deleteUserByIndex(
-            @PathVariable int index
-    ){
-        if(index < users.size()){
-            String deletedUser = users.remove(index);
-            return deletedUser;
-        }
-        return null;
-    }
-
-    // PUT method usually updates the full MODEL
-    @PutMapping("/{index}")
-    public String updateUserByIndex(
-            @PathVariable int index,
-            @RequestBody User user
-    ){
-        //String originalUser = updateUserByMaayan(index, user);
-        String originalUser = users.set(index, user.getFullName());
-        return originalUser;
-    }
-
-    /*
-    private String updateUserByMaayan(int index, User newUser){
-        String ou = users.get(index);
-        users.remove(index);
-        users.add(index, newUser.getFullName());
-        return ou;
-    }
-     */
-
-    // PATCH - can be part of the MODEL
-    @PatchMapping("/{index}")
-    public String patchUserByIndex(
-            @PathVariable int index,
-            @RequestBody User user
-    ){
-        String fullName = users.get(index);
-        User currentUser = new User(fullName);
-        currentUser.updateUserDetails(user);
-        String originalFullName = users.set(index, currentUser.getFullName());
-        return originalFullName;
-    }
-
 
 }
-
-
-

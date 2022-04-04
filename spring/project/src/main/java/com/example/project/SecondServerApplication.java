@@ -8,6 +8,7 @@ public class SecondServerApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SecondServerApplication.class, args);
+
 	}
 
 }
