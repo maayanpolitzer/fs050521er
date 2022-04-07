@@ -9,5 +9,5 @@ public interface UsersRepository extends CrudRepository<User, Integer> {
     //{ SELECT * FROM users WHERE email = ? AND password = ? LIMIT 1;}
     User findByEmailAndPassword(String email, String password);
 
-    
+
 }

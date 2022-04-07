@@ -15,7 +15,7 @@ import java.util.Iterator;
 
 
 @RestController
-@RequestMapping("/users2")
+@RequestMapping("/users")
 public class UsersController {
 
     // IOC
