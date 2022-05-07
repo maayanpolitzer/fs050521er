@@ -1,7 +1,6 @@
 package com.maayanpolitzer.shop.services.interfaces;
 
 import com.maayanpolitzer.shop.models.dto.ProductDTO;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 

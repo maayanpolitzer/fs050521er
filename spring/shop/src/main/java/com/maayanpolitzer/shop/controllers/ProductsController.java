@@ -3,7 +3,6 @@ package com.maayanpolitzer.shop.controllers;
 import com.maayanpolitzer.shop.models.dto.ProductDTO;
 import com.maayanpolitzer.shop.models.requests.ProductRequest;
 import com.maayanpolitzer.shop.models.responses.ProductResponse;
-import com.maayanpolitzer.shop.services.interfaces.IPaymentService;
 import com.maayanpolitzer.shop.services.interfaces.IProductsService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -12,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -46,7 +46,7 @@ public class ProductsController {
 
     @PostMapping
     public ResponseEntity createNewProduct(
-            @RequestBody ProductRequest productRequest
+            @Valid @RequestBody ProductRequest productRequest
     ){
         ProductDTO productDTO = modelMapper.map(productRequest, ProductDTO.class);
         productDTO = productsService.createNewProduct(productDTO);
