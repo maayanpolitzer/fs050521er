@@ -20,7 +20,6 @@ public class UserResponseFactory {
             default:
                 // TODO: 08/05/2022 throw an exception
                 return null;
-
         }
     }
 

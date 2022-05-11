@@ -1,4 +1,4 @@
-package com.maayanpolitzer.shop.controllers;
+package com.maayanpolitzer.shop.controllers.authenticated;
 
 import com.maayanpolitzer.shop.models.dto.OrderDTO;
 import com.maayanpolitzer.shop.models.requests.OrderRequest;
