@@ -1,9 +1,14 @@
 package com.maayanpolitzer.shop.models.entities;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity(name = "users")
+@Getter
+@Setter
 public class User {
 
     @Id
@@ -13,12 +18,8 @@ public class User {
 
     private String lastName;
 
-//    @OneToOne
-//    @JoinColumn(name = "address_id")
-//    private Address address;
-
-//    @OneToMany
-//    private List<Role> roles;
-
+    @OneToMany
+    @JoinColumn(name = "user_id")
+    private List<UserRole> roles;
 
 }
