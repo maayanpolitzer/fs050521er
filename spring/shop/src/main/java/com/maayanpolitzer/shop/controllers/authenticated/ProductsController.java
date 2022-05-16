@@ -30,6 +30,7 @@ public class ProductsController {
 
     @GetMapping
     public ResponseEntity getAllProducts(){
+
         List<ProductDTO> products = productsService.getAllProducts();
         List<ProductResponse> response = modelMapper.map(products, new TypeToken<List<ProductResponse>>(){}.getType());
         return new ResponseEntity(response, HttpStatus.OK);
@@ -39,6 +40,7 @@ public class ProductsController {
     public ResponseEntity getProductById(
             @PathVariable String productId
     ){
+
         ProductDTO productDTO = productsService.getProductById(productId);
         ProductResponse response = modelMapper.map(productDTO, ProductResponse.class);
         return new ResponseEntity(response, HttpStatus.OK);
@@ -48,6 +50,7 @@ public class ProductsController {
     public ResponseEntity createNewProduct(
             @Valid @RequestBody ProductRequest productRequest
     ){
+
         ProductDTO productDTO = modelMapper.map(productRequest, ProductDTO.class);
         productDTO = productsService.createNewProduct(productDTO);
         ProductResponse response = modelMapper.map(productDTO, ProductResponse.class);

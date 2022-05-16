@@ -38,6 +38,7 @@ public class UsersController {
 
     @GetMapping
     public ResponseEntity getAllUsers(){
+
         List<UserDTO> users = usersService.getAll();
         List<UserResponse> response = UserResponseFactory.getUserResponse(users, modelMapper, activeProfile);
         return new ResponseEntity(response, HttpStatus.OK);
