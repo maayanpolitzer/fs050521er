@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import javax.servlet.FilterChain;
@@ -17,7 +19,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
@@ -37,12 +41,18 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
         // obtainUsername && obtainPassword get the data from form-data request body
         String username = obtainUsername(request);
         String password = obtainPassword(request);
+        String[] roles = {"seller", "customer", "admin"};
+
+        List<GrantedAuthority> userAuthorities = new ArrayList<>();
+        for(String role : roles){
+            userAuthorities.add(new SimpleGrantedAuthority(role));
+        }
 
         // TODO: 15/05/2022 check against the users table.
         boolean isUserValid = USERNAME.equals(username) && PASSWORD.equals(password);
         System.out.println("User valid? " + isUserValid);
         if(isUserValid){
-            Authentication authentication = new UsernamePasswordAuthenticationToken("123", username, new ArrayList<>());
+            Authentication authentication = new UsernamePasswordAuthenticationToken("123", username, userAuthorities);
             return authentication;
         }
         throw new LoginException();
@@ -51,14 +61,23 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     @Override
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) throws IOException, ServletException {
         // create access-token (Bearer token)
+
+        String[] authorities = new String[authResult.getAuthorities().size()];
+        for(int i = 0; i < authorities.length; i++){
+            authorities[i] = ((List) authResult.getAuthorities()).get(i).toString();
+        }
+
         try {
             Algorithm algorithm = Algorithm.HMAC256(environment.getProperty("jwt.secret"));
-            Date now = new Date();
-            now.setMinutes(now.getMinutes() + 5);
+//            Date now = new Date();
+//            now.setMinutes(now.getMinutes() + 5);
+            Calendar now = Calendar.getInstance();
+            now.add(Calendar.MINUTE, 5);
             String token = JWT.create()
                     .withIssuer("auth0")
-                    .withExpiresAt(now)
+                    .withExpiresAt(now.getTime())
                     .withClaim("username", authResult.getCredentials().toString())
+                    .withArrayClaim("authorities", authorities)
                     .sign(algorithm);
             // return the generated access-token to the client.
             response.addHeader("access-token", token);

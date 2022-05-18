@@ -29,7 +29,8 @@ public class ProductsController {
     }
 
     @GetMapping
-    public ResponseEntity getAllProducts(){
+    public ResponseEntity getAllProducts(
+    ){
 
         List<ProductDTO> products = productsService.getAllProducts();
         List<ProductResponse> response = modelMapper.map(products, new TypeToken<List<ProductResponse>>(){}.getType());
@@ -45,6 +46,7 @@ public class ProductsController {
         ProductResponse response = modelMapper.map(productDTO, ProductResponse.class);
         return new ResponseEntity(response, HttpStatus.OK);
     }
+
 
     @PostMapping
     public ResponseEntity createNewProduct(

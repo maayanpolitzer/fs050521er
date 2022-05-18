@@ -2,42 +2,40 @@ package com.maayanpolitzer.shop.util.security;
 
 
 import com.auth0.jwt.JWT;
-import com.maayanpolitzer.shop.util.helperClasses.PermitRoutePair;
-import org.springframework.http.HttpStatus;
+import com.auth0.jwt.JWTVerifier;
+import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.exceptions.JWTVerificationException;
+import com.auth0.jwt.interfaces.DecodedJWT;
+import org.springframework.core.env.Environment;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.stream.XMLStreamReader;
 import java.io.IOException;
 
 public class AuthorizationFilter extends BasicAuthenticationFilter {
 
-    private PermitRoutePair[] permittedRoutes;
+    private Environment environment;
 
-    public AuthorizationFilter(AuthenticationManager authenticationManager, PermitRoutePair[] permittedRoutes) {
+    public AuthorizationFilter(AuthenticationManager authenticationManager, Environment environment) {
         super(authenticationManager);
-        this.permittedRoutes = permittedRoutes;
+        this.environment = environment;
     }
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
-        for(PermitRoutePair pair: permittedRoutes){
-            if(request.getRequestURI().equals(pair.getRoute()) && (pair.getMethod() == null || pair.getMethod().toString().equals(request.getMethod()))){
-                chain.doFilter(request, response);
-                // authentication not needed.
-                return;
-            }
-        }
-        // need to authenticate!
-        // if the request has an header with the name "token" => verify the token => push the request to the controller
         String token = request.getHeader("token");
-        if(token == null){
-            response.setStatus(HttpStatus.UNAUTHORIZED.value());
-            return;
+        if (token != null) {
+            Authentication authentication = new JWTAuthentication(token, environment);
+            SecurityContextHolder.getContext().setAuthentication(authentication);
         }
-        JWT.
+        super.doFilterInternal(request, response, chain);
     }
 }
