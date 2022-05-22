@@ -1,8 +1,9 @@
 package com.maayanpolitzer.shop.models.responses;
 
-import com.maayanpolitzer.shop.models.entities.UserRole;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 
 @Getter
@@ -15,5 +16,8 @@ public class UserResponse {
 
     private String lastName;
 
+    private String username;
+
+    private List<RoleResponse> roles;
 
 }

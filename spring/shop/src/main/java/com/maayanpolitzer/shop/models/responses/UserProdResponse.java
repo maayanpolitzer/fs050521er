@@ -9,6 +9,6 @@ import java.util.List;
 @Setter
 public class UserProdResponse extends UserResponse {
 
-    private List<UserRoleResponse> roles;
+    //private List<UserRoleResponse> roles;
 
 }

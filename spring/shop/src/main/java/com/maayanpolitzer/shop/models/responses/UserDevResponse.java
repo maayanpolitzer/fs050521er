@@ -1,6 +1,6 @@
 package com.maayanpolitzer.shop.models.responses;
 
-import com.maayanpolitzer.shop.models.dto.UserRoleDTO;
+import com.maayanpolitzer.shop.models.dto.RoleDTO;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,6 +10,6 @@ import java.util.List;
 @Setter
 public class UserDevResponse extends UserResponse {
 
-     private List<UserRoleDTO> roles;
+     //private List<RoleDTO> roles;
 
 }
