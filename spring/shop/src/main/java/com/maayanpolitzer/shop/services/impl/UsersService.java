@@ -24,14 +24,13 @@ public class UsersService implements IUsersService {
     private UsersRepo usersRepo;
     private ModelMapper modelMapper;
     private BCryptPasswordEncoder passwordEncoder;
-    private Environment environment;
+
 
     @Autowired
-    public UsersService(UsersRepo usersRepo, ModelMapper modelMapper, BCryptPasswordEncoder passwordEncoder, Environment environment) {
+    public UsersService(UsersRepo usersRepo, ModelMapper modelMapper, BCryptPasswordEncoder passwordEncoder) {
         this.usersRepo = usersRepo;
         this.modelMapper = modelMapper;
         this.passwordEncoder = passwordEncoder;
-        this.environment = environment;
     }
 
     @Override

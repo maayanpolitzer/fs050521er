@@ -52,7 +52,6 @@ public class ProductsController {
     public ResponseEntity createNewProduct(
             @Valid @RequestBody ProductRequest productRequest
     ){
-
         ProductDTO productDTO = modelMapper.map(productRequest, ProductDTO.class);
         productDTO = productsService.createNewProduct(productDTO);
         ProductResponse response = modelMapper.map(productDTO, ProductResponse.class);

@@ -16,6 +16,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.security.Principal;
 import java.util.List;
 
@@ -62,7 +63,7 @@ public class UsersController {
 
     @PostMapping
     public ResponseEntity createNewUser(
-            @RequestBody UserRequest request
+            @Valid @RequestBody UserRequest request
     ){
         UserDTO user = modelMapper.map(request, UserDTO.class);
         user.setRoles(rolesService.findAllById(request.getRoles()));
