@@ -1,0 +1,56 @@
+CREATE DATABASE  IF NOT EXISTS `shop` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `shop`;
+-- MySQL dump 10.13  Distrib 8.0.28, for macos11 (x86_64)
+--
+-- Host: 127.0.0.1    Database: shop
+-- ------------------------------------------------------
+-- Server version	8.0.24
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `orders`
+--
+
+DROP TABLE IF EXISTS `orders`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `orders` (
+  `id` varchar(45) NOT NULL,
+  `user_id` varchar(15) DEFAULT NULL,
+  `price` float DEFAULT NULL,
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `order_submitted` tinyint(1) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `orders`
+--
+
+LOCK TABLES `orders` WRITE;
+/*!40000 ALTER TABLE `orders` DISABLE KEYS */;
+INSERT INTO `orders` VALUES ('021297e8-1fda-4fcb-b7e0-f0302b65b621','123qwe',367,'2022-05-01 20:50:53',0),('1b2ffddc-48af-460b-9023-cd09accc4caa','123qwe',75,'2022-05-01 20:54:54',0),('2c4ce3e9-700c-467f-8fb1-7120c1e20dfc','123qwe',312,'2022-05-01 20:44:02',0),('3e08a32c-dabd-4fe6-b77c-6824704f73f1','123qwe',70,'2022-05-01 20:53:01',0),('45f6a1a8-922d-4b0e-b068-771381fefc96','123qwe',79,'2022-05-01 20:55:22',0),('763f40cb-c523-411b-b0d8-468b1410f534','123qwe',860,'2022-05-01 20:41:43',0),('8cedff8c-25e2-45d5-8519-1e3be1180f6c','123qwe',859,'2022-05-01 20:38:53',0),('d931be67-7f1a-47ee-9600-8aeb3d45d458','123qwe',366,'2022-05-01 20:50:22',0),('order1','123qwe',8199.9,'2022-04-24 17:58:20',1);
+/*!40000 ALTER TABLE `orders` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2022-06-02 10:20:11
